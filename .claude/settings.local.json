@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"G:\\\\next-shadcn-admin-dashboard\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(npx next *)"
+    ]
+  }
+}

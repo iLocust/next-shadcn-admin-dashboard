@@ -2,6 +2,7 @@ import {
   Banknote,
   Calendar,
   ChartBar,
+  ClipboardCheck,
   Fingerprint,
   Forklift,
   Gauge,
@@ -16,6 +17,8 @@ import {
   ReceiptText,
   ShoppingBag,
   SquareArrowUpRight,
+  Timer,
+  UserRound,
   Users,
 } from "lucide-react";
 
@@ -45,6 +48,36 @@ export interface NavGroup {
 }
 
 export const sidebarItems: NavGroup[] = [
+  {
+    id: 0,
+    label: "HRIS",
+    items: [
+      {
+        title: "HR Dashboard",
+        url: "/dashboard/hris/dashboard",
+        icon: LayoutDashboard,
+        isNew: true,
+      },
+      {
+        title: "Employee Management",
+        url: "/dashboard/hris/employees",
+        icon: UserRound,
+        isNew: true,
+      },
+      {
+        title: "Time Management",
+        url: "/dashboard/hris/time-management",
+        icon: Timer,
+        isNew: true,
+        subItems: [
+          { title: "Time Off", url: "/dashboard/hris/time-management/time-off" },
+          { title: "Attendance", url: "/dashboard/hris/time-management/attendance" },
+          { title: "Overtime", url: "/dashboard/hris/time-management/overtime" },
+          { title: "Schedule", url: "/dashboard/hris/time-management/schedule" },
+        ],
+      },
+    ],
+  },
   {
     id: 1,
     label: "Dashboards",

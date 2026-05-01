@@ -1,0 +1,5461 @@
+<!-----
+
+You have some errors, warnings, or alerts. If you are using reckless mode, turn it off to see useful information and inline alerts.
+* ERRORs: 0
+* WARNINGs: 0
+* ALERTS: 1
+
+Conversion time: 56.762 seconds.
+
+
+Using this Markdown file:
+
+1. Paste this output into your source file.
+2. See the notes and action items below regarding this conversion run.
+3. Check the rendered output (headings, lists, code blocks, tables) for proper
+   formatting and use a linkchecker before you publish this page.
+
+Conversion notes:
+
+* Docs™ to Markdown version 2.0β2
+* Thu Apr 30 2026 21:17:24 GMT-0700 (Waktu Musim Panas Pasifik)
+* Source doc: Dokumen tanpa judul
+* This is a partial selection. Check to make sure intra-doc links work.
+* Tables are currently converted to HTML tables.
+* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
+
+----->
+
+
+<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 1.</p>
+<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
+
+<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
+
+<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
+
+
+
+### **4.1 HR Dashboard**
+
+
+#### **4.1.1 Purpose / Description**
+
+HR Dashboard berfungsi sebagai halaman utama yang memberikan gambaran umum mengenai kondisi SDM perusahaan secara real-time. Dashboard memiliki 5 widget MVP yang memberikan visibilitas dari 5 domain data kritis.
+
+Dashboard tersedia dalam dua varian berdasarkan role:
+
+
+
+* HR Admin Dashboard: full access semua cabang, semua region, dengan filter 3 level (nasional → region → kota → cabang)
+* Manager Dashboard: data dibatasi otomatis berdasarkan MANAGER_SCOPE (hanya cabang dalam region yang di-assign)
+
+
+#### **4.1.2 Widget MVP**
+
+
+<table>
+  <tr>
+   <td><strong>Widget</strong>
+   </td>
+   <td><strong>Data yang Ditampilkan</strong>
+   </td>
+   <td><strong>Sumber Modul</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Workforce Overview
+   </td>
+   <td>Total headcount, distribusi status (tetap/kontrak/probation), kontrak hampir habis, onboarding berjalan
+   </td>
+   <td>Employee Management
+   </td>
+  </tr>
+  <tr>
+   <td>Attendance & Time
+   </td>
+   <td>Kehadiran hari ini per cabang, keterlambatan, koreksi absensi pending, time off pending approval
+   </td>
+   <td>Time Management
+   </td>
+  </tr>
+  <tr>
+   <td>Turnover & Retention
+   </td>
+   <td>Turnover rate 6 bulan terakhir, klasifikasi (resign/termination/contract end), tren per region
+   </td>
+   <td>Employee Management, Separation
+   </td>
+  </tr>
+  <tr>
+   <td>Performance & KPI
+   </td>
+   <td>Distribusi KPI (on track/at risk/below), karyawan dalam PIP, jadwal appraisal jatuh tempo
+   </td>
+   <td>Performance Management
+   </td>
+  </tr>
+  <tr>
+   <td>Recruitment Pipeline
+   </td>
+   <td>Posisi aktif, jumlah pelamar per tahap, conversion rate
+   </td>
+   <td>Employee Management (data historis)
+   </td>
+  </tr>
+</table>
+
+
+
+
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image1.png "image_tooltip")
+
+
+
+#### **4.1.3 Use case – HR Dashboard**
+
+
+#### **4.1.3.1 HR Admin**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.1.3.1</strong>
+   </td>
+   <td><strong>HR Dashboard</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor</strong>
+   </td>
+   <td>HR Admin
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>User berhasil login ke sistem HRIS
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>User memiliki role HR Admin; data karyawan minimal sudah tersedia di sistem
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Dashboard berhasil ditampilkan dengan data real-time dari semua modul
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR Admin login ke sistem</li>
+
+<li>Sistem menampilkan HR Dashboard</li>
+
+<li>Sistem mengambil data dari semua modul dan menampilkan 5 widget MVP</li>
+
+<li>HR Admin dapat memfilter data: Semua Cabang → Region → Kota → Cabang spesifik</li>
+
+<li>HR Admin dapat klik widget untuk drill-down ke modul terkait</li>
+
+<li>Sistem menampilkan alert/warning jika ada pending approval atau anomali data</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Data gagal load</strong> → tampilkan error message dan tombol retry
+<p>
+<strong>E2: Tidak ada data</strong> → tampilkan empty state dengan panduan pengisian data
+<p>
+<strong>E3: Pending approval > threshold</strong> → tampilkan alert banner
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.1.3.2 Manager**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.1.3.2</strong>
+   </td>
+   <td><strong>HR Dashboard</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Manager
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager – Melihat performa tim secara cepat</li>
+
+<li>HR Admin – Monitoring data tetap konsisten</li>
+
+<li>Management - Membutuhkan data untuk decision making</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager berhasil login ke sistem HRIS</li>
+
+<li>Manager membuka menu Dashboard</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager sudah login; MANAGER_SCOPE sudah di-assign untuk region yang bersangkutan</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Dashboard menampilkan data yang dibatasi sesuai MANAGER_SCOPE</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager login ke sistem</li>
+
+<li>Sistem membaca MANAGER_SCOPE untuk menentukan region/cabang yang dapat diakses</li>
+
+<li>Sistem menampilkan Manager Dashboard dengan data yang sudah difilter otomatis</li>
+
+<li>Manager dapat melihat summary kehadiran, KPI progress, dan notifikasi penting untuk regionnya</li>
+
+<li>Manager dapat klik widget untuk drill-down ke detail data dalam scope-nya</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: MANAGER_SCOPE belum dikonfigurasi</strong> → sistem menampilkan pesan error dan mengarahkan ke Superadmin
+<p>
+<strong>E2: Akses di luar scope</strong> → sistem menolak dan mencatat upaya akses di audit log
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.1.3 Mock-up**
+
+-
+
+
+#### **4.1.4 Functional Requirements**
+
+
+<table>
+  <tr>
+   <td><strong>Spec ID</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+   <td><strong>Business Rules / Data Dependency</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>DB-01
+   </td>
+   <td>Sistem menampilkan total karyawan
+   </td>
+   <td>Data diambil dari Employee Management (employee aktif saja)
+   </td>
+  </tr>
+  <tr>
+   <td>DB-02
+   </td>
+   <td>Sistem menampilkan distribusi karyawan berdasarkan gender
+   </td>
+   <td>Data gender berasal dari profil employee
+   </td>
+  </tr>
+  <tr>
+   <td>DB-03
+   </td>
+   <td>Sistem menampilkan status karyawan (active, inactive, probation)
+   </td>
+   <td>Berdasarkan employment status di Employee Management
+   </td>
+  </tr>
+  <tr>
+   <td>DB-04
+   </td>
+   <td>Sistem menampilkan summary attendance (present, late, absent)
+   </td>
+   <td>Data berasal dari Time Management (attendance)
+   </td>
+  </tr>
+  <tr>
+   <td>DB-05
+   </td>
+   <td>Sistem menampilkan jumlah karyawan yang cuti
+   </td>
+   <td>Data dari Time Off (approved leave)
+   </td>
+  </tr>
+  <tr>
+   <td>DB-06
+   </td>
+   <td>Sistem menampilkan notifikasi penting
+   </td>
+   <td>Data dari Announcement & Time Off
+   </td>
+  </tr>
+  <tr>
+   <td>DB-07
+   </td>
+   <td>Sistem menampilkan KPI summary
+   </td>
+   <td>Data dari Performance Management
+   </td>
+  </tr>
+  <tr>
+   <td>DB-08
+   </td>
+   <td>Sistem menampilkan grafik HR (trend karyawan)
+   </td>
+   <td>Data historis dari Employee Management
+   </td>
+  </tr>
+  <tr>
+   <td>DB-09
+   </td>
+   <td>Sistem menyediakan filter dashboard (periode/departemen)
+   </td>
+   <td>Filter mempengaruhi semua widget
+   </td>
+  </tr>
+  <tr>
+   <td>DB-10
+   </td>
+   <td>Sistem menampilkan data secara real-time
+   </td>
+   <td>Data harus sinkron dengan database
+   </td>
+  </tr>
+  <tr>
+   <td>DB-11
+   </td>
+   <td>Sistem membatasi akses data berdasarkan role
+   </td>
+   <td>HR full access, Manager terbatas
+   </td>
+  </tr>
+  <tr>
+   <td>DB-12
+   </td>
+   <td>Sistem menampilkan top performer
+   </td>
+   <td>Data dari KPI
+   </td>
+  </tr>
+  <tr>
+   <td>DB-13
+   </td>
+   <td>Sistem menampilkan attendance hari ini
+   </td>
+   <td>Data attendance harian
+   </td>
+  </tr>
+  <tr>
+   <td>DB-14
+   </td>
+   <td>Sistem menampilkan upcoming event
+   </td>
+   <td>Data dari Calendar
+   </td>
+  </tr>
+  <tr>
+   <td>DB-15
+   </td>
+   <td>Sistem menampilkan warning atau alert (misalnya banyak telat)
+   </td>
+   <td>Trigger dari attendance rule
+   </td>
+  </tr>
+  <tr>
+   <td>DB-16
+   </td>
+   <td>Sistem memungkinkan drill-down ke detail data
+   </td>
+   <td>Klik widget membuka modul terkait
+   </td>
+  </tr>
+  <tr>
+   <td>DB-17
+   </td>
+   <td>Sistem menyimpan preferensi tampilan dashboard
+   </td>
+   <td>Berdasarkan user setting
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.1.5 Field Level Specifications**
+
+**Form Elements:**
+
+
+<table>
+  <tr>
+   <td><strong>Field Label</strong>
+   </td>
+   <td><strong>Type</strong>
+   </td>
+   <td><strong>Required</strong>
+   </td>
+   <td><strong>Default Value</strong>
+   </td>
+   <td><strong>Validation Rules</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Period
+   </td>
+   <td>Date Range
+   </td>
+   <td>Yes
+   </td>
+   <td>Current Month
+   </td>
+   <td>Format tanggal valid
+   </td>
+   <td>Filter periode data
+   </td>
+  </tr>
+  <tr>
+   <td>Department
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>All
+   </td>
+   <td>Harus department valid
+   </td>
+   <td>Filter per divisi
+   </td>
+  </tr>
+  <tr>
+   <td>Employee
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>All
+   </td>
+   <td>Harus employee aktif
+   </td>
+   <td>Filter individu
+   </td>
+  </tr>
+  <tr>
+   <td>Employment Status
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>Active
+   </td>
+   <td>Active/Inactive/Probation
+   </td>
+   <td>Filter status
+   </td>
+  </tr>
+  <tr>
+   <td>Chart Type
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>Bar Chart
+   </td>
+   <td>Harus tipe chart valid
+   </td>
+   <td>Pilih jenis grafik
+   </td>
+  </tr>
+  <tr>
+   <td>Data Grouping
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>Monthly
+   </td>
+   <td>Daily/Weekly/Monthly
+   </td>
+   <td>Pengelompokan data
+   </td>
+  </tr>
+  <tr>
+   <td>KPI Period
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>Current
+   </td>
+   <td>Harus periode valid
+   </td>
+   <td>Filter KPI
+   </td>
+  </tr>
+  <tr>
+   <td>Location
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>All
+   </td>
+   <td>Harus lokasi valid
+   </td>
+   <td>Filter lokasi kerja
+   </td>
+  </tr>
+  <tr>
+   <td>Search
+   </td>
+   <td>Text
+   </td>
+   <td>No
+   </td>
+   <td>-
+   </td>
+   <td>Max 100 karakter
+   </td>
+   <td>Pencarian data
+   </td>
+  </tr>
+  <tr>
+   <td>Refresh Interval
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>Auto
+   </td>
+   <td>Manual/Auto
+   </td>
+   <td>Interval refresh
+   </td>
+  </tr>
+</table>
+
+
+**Buttons, Links and Icons:**
+
+
+<table>
+  <tr>
+   <td><strong>Label</strong>
+   </td>
+   <td><strong>Visible</strong>
+   </td>
+   <td><strong>Event</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Apply Filter
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>Filter valid
+   </td>
+   <td>Terapkan filter
+   </td>
+  </tr>
+  <tr>
+   <td>Reset Filter
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Reset ke default
+   </td>
+  </tr>
+  <tr>
+   <td>Refresh
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Refresh data dashboard
+   </td>
+  </tr>
+  <tr>
+   <td>Export Dashboard
+   </td>
+   <td>HR/Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Export ke PDF/Excel
+   </td>
+  </tr>
+  <tr>
+   <td>View Detail (👁)
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Drill-down ke modul
+   </td>
+  </tr>
+  <tr>
+   <td>Drill-down Link
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Buka detail data
+   </td>
+  </tr>
+  <tr>
+   <td>Notification Bell 🔔
+   </td>
+   <td>All Users
+   </td>
+   <td>Auto
+   </td>
+   <td>-
+   </td>
+   <td>Menampilkan notifikasi
+   </td>
+  </tr>
+  <tr>
+   <td>Settings ⚙️
+   </td>
+   <td>HR/Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Pengaturan dashboard
+   </td>
+  </tr>
+  <tr>
+   <td>Chart Toggle
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Ubah tipe chart
+   </td>
+  </tr>
+  <tr>
+   <td>Fullscreen ⛶
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Tampilan full screen
+   </td>
+  </tr>
+  <tr>
+   <td>Download ⬇️
+   </td>
+   <td>All Users
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Download report
+   </td>
+  </tr>
+</table>
+
+
+
+### **4.2 Employee Management**
+
+
+#### **4.2.1 Purpose / Description**
+
+Modul Employee Management adalah core module dalam HRIS — seluruh modul lain bergantung pada data yang tersimpan di sini. Modul ini mengelola seluruh siklus data karyawan mulai dari onboarding, pemeliharaan data, career movement, hingga separation.
+
+Cakupan modul:
+
+
+
+* Data personal karyawan
+* Onboarding checklist (hybrid: blocking untuk data wajib, opsional untuk sisanya)
+* Riwayat career movement (promosi, mutasi, demosi)
+* Attendance correction request flow)
+* Import/export data massal
+
+
+#### **4.2.2 Onboarding Flow**
+
+Onboarding mengggunakan pendekatan hybrid blocking:
+
+
+<table>
+  <tr>
+   <td><strong>Step</strong>
+   </td>
+   <td><strong>Wajib Sebelum Aktif?</strong>
+   </td>
+   <td><strong>Keterangan</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Data dasar karyawan (nama, posisi, cabang, divisi)
+   </td>
+   <td>Ya (Blocking)
+   </td>
+   <td>Akun tidak dapat diaktifkan sebelum ini selesai
+   </td>
+  </tr>
+  <tr>
+   <td>Role & akses sistem
+   </td>
+   <td>Ya (Blocking)
+   </td>
+   <td>Role harus di-assign agar karyawan bisa login
+   </td>
+  </tr>
+  <tr>
+   <td>Assign schedule & shift
+   </td>
+   <td>Ya (Blocking)
+   </td>
+   <td>Karyawan harus punya jadwal sebelum bisa clock-in
+   </td>
+  </tr>
+  <tr>
+   <td>Assign KPI pertama
+   </td>
+   <td>Tidak (Opsional)
+   </td>
+   <td>Bisa dilengkapi dalam periode probation
+   </td>
+  </tr>
+  <tr>
+   <td>Upload dokumen (kontrak, NDA)
+   </td>
+   <td>Tidak (Opsional)
+   </td>
+   <td>Disarankan sebelum hari pertama kerja
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.2.3 Use case**
+
+
+#### **4.2.3.1 HR Admin **
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.2.3.1</strong>
+   </td>
+   <td><strong>Employee Management</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>HR Admin
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR Admin – Mengelola data karyawan</li>
+
+<li>Management - Membutuhkan visibilitas organisasi</li>
+
+<li>Finance - Membutuhkan data untuk payroll</li>
+
+<li>Employee - Memastikan data pribadi benar</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>HR membuka menu Employee Management
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>- HR sudah login
+<p>
+- HR memiliki akses ke Employee Management
+<p>
+- Struktur organisasi sudah tersedia
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Data karyawan tersimpan/terupdate di sistem
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td><strong>A. Add Employee & Onboarding</strong>
+<p>
+1. HR klik Add Employee
+<p>
+2. Sistem menampilkan form onboarding step-by-step
+<p>
+3. HR mengisi data blocking wajib: nama, posisi, cabang, divisi, role, schedule
+<p>
+4. Sistem memvalidasi kelengkapan data blocking
+<p>
+5. HR klik Activate Account
+<p>
+6. Sistem mengaktifkan akun dan mengirim kredensial login ke karyawan
+<p>
+7. HR melengkapi data opsional (KPI, dokumen) secara bertahap
+<p>
+ 
+<p>
+<strong>B. Edit Employee Data</strong>
+<p>
+1. HR memilih karyawan dari daftar
+<p>
+2. HR membuka halaman detail karyawan
+<p>
+3. HR mengedit field yang diperlukan
+<p>
+4. Sistem menyimpan perubahan dan mencatat audit trail (nilai sebelum & sesudah)
+<p>
+ 
+<p>
+<strong>C. Career Movement (Promosi/Mutasi/Demosi)</strong>
+<p>
+1. HR memilih karyawan
+<p>
+2. HR klik Career Movement
+<p>
+3. HR mengisi: jenis movement, jabatan/divisi/cabang baru, tanggal efektif
+<p>
+4. Sistem menyimpan riwayat movement dan memperbarui data aktif karyawan
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Data tidak valid</strong> → sistem menolak input dan menampilkan pesan error spesifik
+<p>
+<strong>E2: Duplicate NIP</strong> → sistem menolak dan meminta konfirmasi
+<p>
+<strong>E3: Import massal gaga</strong>l → tampilkan error log per record
+<p>
+<strong>E4: Aktivasi sebelum data blocking lengkap</strong> → sistem menolak dan menampilkan checklist yang belum selesai
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>Very High (Core System)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.2.3.2 Manager **
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.2.3.2</strong>
+   </td>
+   <td><strong>Employee Management</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Manager
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee – mengakses dan memperbarui data pribadi dengan mudah</li>
+
+<li>HR Admin - menjaga akurasi dan validitas data karyawan</li>
+
+<li>Manager - memastikan data tim tetap valid</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee membuka menu My Profil / Employee Management </li>
+
+<li>Melihat informasi tertentu (alamat, kontak, dll)</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>Manager sudah login; MANAGER_SCOPE sudah dikonfigurasi
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Data karyawan ditampilkan sesuai scope; tidak ada perubahan data (read-only)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>1. Manager membuka menu Employee Management
+<p>
+2. Sistem otomatis memfilter: hanya karyawan dalam region/cabang Manager
+<p>
+3. Manager dapat search, filter berdasarkan divisi atau status
+<p>
+4. Manager klik karyawan untuk melihat detail: general info, job info, career history
+<p>
+5. Manager hanya dapat membaca data, tidak dapat mengedit
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td>E1: Manager mencoba akses karyawan di luar scope → sistem menolak akses dan mencatat di audit log
+<p>
+E2: Manager mencoba edit data → tombol edit di-disable oleh sistem
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High 
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.2.3.3 Employee **
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.2.3.3</strong>
+   </td>
+   <td><strong>Employee Management</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Employee
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR Admin – Memastikan data yang diakses sesuai dengan otorisasi</li>
+
+<li>Management - Struktur organisasi dan reporting tetap akurat</li>
+
+<li>Manager - Mendapatkan visibilitas data tim untuk monitoring & decision making</li>
+
+<li>Employee - Memastikan data pribadi benar</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>Employee membuka menu My Profile
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>Data pribadi karyawan telah ada disistem
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Data pribadi ditampilkan; perubahan yang diizinkan tersimpan dengan audit trail
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td><strong>A. View Profile</strong>
+<p>
+1. Employee login dan membuka My Profile
+<p>
+2. Sistem menampilkan: data personal, job info, jadwal, saldo cuti, KPI pribadi
+<p>
+ 
+<p>
+<strong>B. Update Data Pribadi (Field Terbatas)</strong>
+<p>
+1. Employee klik Edit Profile
+<p>
+2. Sistem membuka form edit dengan field terbatas: alamat, nomor HP, email pribadi
+<p>
+3. Employee mengisi perubahan dan klik Save
+<p>
+4. Jika perubahan memerlukan approval → status Pending, HR menerima notifikasi
+<p>
+5. Sistem mencatat audit log
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Employee mencoba edit field yang tidak diizinkan</strong> → field di-disable
+<p>
+<strong>E2: Format data tidak valid </strong>→ sistem menolak submit
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>Medium 
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.2.4 Mock-up**
+
+-
+
+
+#### **4.2.5 Functional Requirements**
+
+
+<table>
+  <tr>
+   <td>
+<h4><strong>Spec ID</strong></h4>
+
+
+   </td>
+   <td>
+<h4><strong>Description</strong></h4>
+
+
+   </td>
+   <td>
+<h4><strong>Role</strong></h4>
+
+
+   </td>
+   <td>
+<h4><strong>Business Rules</strong></h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-01</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem dapat menambahkan data karyawan dengan onboarding checklist hybrid</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Data blocking wajib lengkap sebelum akun dapat diaktifkan</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-02</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem dapat mengupdate data karyawan</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Perubahan tercatat dalam audit trail (nilai sebelum & sesudah)</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-03</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem dapat deactivate karyawan (soft delete)</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin, Owner</h4>
+
+
+   </td>
+   <td>
+<h4>Tidak boleh hard delete; status menjadi inactive</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-04</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem menampilkan daftar karyawan dengan filter dan search</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin, Manager</h4>
+
+
+   </td>
+   <td>
+<h4>Manager hanya melihat karyawan dalam scope-nya</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-05</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem mencatat riwayat career movement</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Menyimpan jabatan/divisi/cabang lama, baru, dan tanggal efektif</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-06</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem menyimpan foto karyawan</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Format JPG/PNG, maks 2MB</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-07</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem validasi NIP unik</h4>
+
+
+   </td>
+   <td>
+<h4>System</h4>
+
+
+   </td>
+   <td>
+<h4>NIP tidak boleh duplikat dalam database</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-08</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem mendukung import data massal</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Format Excel/CSV sesuai template; duplicate dan invalid data ditolak</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-09</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem mendukung export data karyawan</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Data sesuai filter yang dipilih</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-10</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem menampilkan onboarding checklist progress</h4>
+
+
+   </td>
+   <td>
+<h4>HR Admin</h4>
+
+
+   </td>
+   <td>
+<h4>Persentase completion per karyawan baru</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-11</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem memblokir aktivasi akun jika data blocking belum lengkap</h4>
+
+
+   </td>
+   <td>
+<h4>System</h4>
+
+
+   </td>
+   <td>
+<h4>Validasi dilakukan sebelum tombol Activate Account aktif</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-12</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem membatasi akses data berdasarkan MANAGER_SCOPE</h4>
+
+
+   </td>
+   <td>
+<h4>System</h4>
+
+
+   </td>
+   <td>
+<h4>Manager hanya dapat melihat karyawan dalam region/cabang-nya</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-13</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem menyimpan histori perubahan data (audit trail)</h4>
+
+
+   </td>
+   <td>
+<h4>System</h4>
+
+
+   </td>
+   <td>
+<h4>Semua perubahan wajib tercatat dan tidak dapat dihapus</h4>
+
+
+   </td>
+  </tr>
+  <tr>
+   <td>
+<h4>EMP-14</h4>
+
+
+   </td>
+   <td>
+<h4>Sistem memungkinkan employee update data pribadi terbatas</h4>
+
+
+   </td>
+   <td>
+<h4>Employee</h4>
+
+
+   </td>
+   <td>
+<h4>Perubahan tertentu memerlukan approval HR</h4>
+
+
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.2.6 Field Level Specifications**
+
+**Form Elements:**
+
+
+<table>
+  <tr>
+   <td><strong>Field Label</strong>
+   </td>
+   <td><strong>Type</strong>
+   </td>
+   <td><strong>Required</strong>
+   </td>
+   <td><strong>Role Access</strong>
+   </td>
+   <td><strong>Default</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Full Name</strong>
+   </td>
+   <td>Text
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Tidak boleh kosong, maks 100 karakter
+   </td>
+  </tr>
+  <tr>
+   <td><strong>NIP</strong>
+   </td>
+   <td>Text (auto)
+   </td>
+   <td>Ya
+   </td>
+   <td>System
+   </td>
+   <td>Auto-generate
+   </td>
+   <td>Unik, tidak boleh duplikat
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Photo</strong>
+   </td>
+   <td>Image Upload
+   </td>
+   <td>Tidak
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Format JPG/PNG, maks 2MB
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Branch (Cabang)</strong>
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Harus pilih dari master data cabang
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Region</strong>
+   </td>
+   <td>Auto (dari cabang)
+   </td>
+   <td>Ya
+   </td>
+   <td>System
+   </td>
+   <td>Auto
+   </td>
+   <td>Terisi otomatis berdasarkan cabang yang dipilih
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Division</strong>
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Harus valid sesuai master data divisi
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Job Position</strong>
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Harus valid sesuai struktur jabatan
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Employment Type</strong>
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Tetap
+   </td>
+   <td>Tetap / Kontrak / Probation
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Join Date</strong>
+   </td>
+   <td>Date Picker
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Today
+   </td>
+   <td>Tidak boleh lebih dari hari ini
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Email (Sistem)</strong>
+   </td>
+   <td>Text
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Format email valid, unik dalam sistem
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Phone Number</strong>
+   </td>
+   <td>Text
+   </td>
+   <td>Ya
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Format angka, min 10 digit
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Address</strong>
+   </td>
+   <td>Textarea
+   </td>
+   <td>Tidak
+   </td>
+   <td>Employee (terbatas)
+   </td>
+   <td>-
+   </td>
+   <td>Maks 255 karakter
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Contract End Date</strong>
+   </td>
+   <td>Date Picker
+   </td>
+   <td>Jika Kontrak
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Wajib diisi jika tipe Kontrak
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Probation End Date</strong>
+   </td>
+   <td>Date Picker
+   </td>
+   <td>Jika Probation
+   </td>
+   <td>HR Admin
+   </td>
+   <td>-
+   </td>
+   <td>Wajib diisi jika tipe Probation
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Status</strong>
+   </td>
+   <td>Auto
+   </td>
+   <td>Ya
+   </td>
+   <td>System
+   </td>
+   <td>Active
+   </td>
+   <td>Active / Inactive / Probation
+   </td>
+  </tr>
+</table>
+
+
+**Buttons, Links and Icons:**
+
+
+<table>
+  <tr>
+   <td><strong>Label</strong>
+   </td>
+   <td><strong>Visible</strong>
+   </td>
+   <td><strong>Event</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Add Employee
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Membuka form tambah karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Save
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Semua field wajib terisi & valid
+   </td>
+   <td>Menyimpan data ke database
+   </td>
+  </tr>
+  <tr>
+   <td>Update
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Validasi perubahan data
+   </td>
+   <td>Mengupdate data karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Delete
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Konfirmasi delete
+   </td>
+   <td>Menonaktifkan karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Import Data
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Format file harus sesuai template
+   </td>
+   <td>Upload data massal
+   </td>
+  </tr>
+  <tr>
+   <td>Export Data
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Download data karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Upload Document
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Format file valid
+   </td>
+   <td>Upload dokumen
+   </td>
+  </tr>
+  <tr>
+   <td>👤 View Detail
+   </td>
+   <td>HR/Admin/Manager
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Menampilkan detail karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>✏️ Edit Icon
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>-
+   </td>
+   <td>Masuk mode edit
+   </td>
+  </tr>
+  <tr>
+   <td>🗑 Delete Icon
+   </td>
+   <td>HR Admin
+   </td>
+   <td>On Click
+   </td>
+   <td>Konfirmasi
+   </td>
+   <td>Hapus / deactivate
+   </td>
+  </tr>
+</table>
+
+
+
+### **4.3 Time Management **
+
+
+#### **4.3.1 Purpose / Description**
+
+Modul Time Management mengelola seluruh aktivitas waktu karyawan secara terintegrasi, mencakup 5 sub-modul:
+
+
+        •   	Time Off — pengelolaan cuti, izin, dan hari libur dengan Skenario C approval
+
+
+        •   	Attendance — pencatatan dan koreksi kehadiran dengan mekanisme request formal
+
+
+        •   	Schedule — penjadwalan shift kerja per cabang
+
+
+        •   	Lembur — mencatat aktivitas lembur karyawan dan mengeloloa pengajuan lembur berbasis approval
+
+
+#### **4.3.2 Sub-Module: Time Off**
+
+Approval Flow — Skenario C
+
+Sistem menggunakan Skenario C sebagai pola approval time off:
+
+ 
+
+
+<table>
+  <tr>
+   <td><strong>Tahap</strong>
+   </td>
+   <td><strong>Aktor</strong>
+   </td>
+   <td><strong>Keterangan</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>1
+   </td>
+   <td>Employee
+   </td>
+   <td>Submit pengajuan. Sistem cek kuota otomatis sebelum request dikirim ke approver.
+   </td>
+  </tr>
+  <tr>
+   <td>2
+   </td>
+   <td>Manager (scope region)
+   </td>
+   <td>Menerima notifikasi dan melakukan review. Jika tidak ada Manager yang di-assign, request langsung ke HR Admin.
+   </td>
+  </tr>
+  <tr>
+   <td>3
+   </td>
+   <td>HR Admin (final authority)
+   </td>
+   <td>HR Admin menjadi final authority dan dapat override keputusan Manager kapanpun, bahkan setelah approved/rejected.
+   </td>
+  </tr>
+  <tr>
+   <td>Override
+   </td>
+   <td>Owner
+   </td>
+   <td>Owner dapat override keputusan apapun dari HR Admin atau Manager. Wajib mengisi alasan override.
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.2.1 Use case – Time Off (Pengelolaan cuti, izin dan hari libur)**
+
+
+#### **4.3.2.1.1  HR Admin**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.2.1.1</strong>
+   </td>
+   <td><strong>Time Off</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>HR Admin
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Employee</strong>: Hak cuti jelas</li>
+
+<li><strong>HR</strong>: Kontrol penuh cuti & kebijakan</li>
+
+<li><strong>Manager : </strong>approval berjalan sesuai aturan</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>HR ingin:
+<ul>
+
+<li>Menambahkan hari libur</li>
+
+<li>Assign cuti</li>
+
+<li>Mengoreksi data</li>
+
+<li>Melakukan approval</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>User login sebagai HR Admin</li>
+
+<li>Data employee tersedia</li>
+
+<li>Struktur organisasi tersedia</li>
+
+<li>Kebijakan HR (cuti, jam kerja) sudah ditentukan</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Data tersimpan / diperbaharui</li>
+
+<li>Kalender terupdate</li>
+
+<li>Notifikasi terkirim</li>
+
+<li>Audit trail tercatat</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Create Time Off (Hari Libur / Cuti)</strong></li>
+
+<li>HR klik Create Time Off</li>
+
+<li>Input:  \
+- Jenis (libur/cuti) \
+- Tanggal</li>
+
+<li>Klik save</li>
+
+<li>Sistem: \
+- Menyimpan data \
+- Update calendar
+    <strong>B. Approve / Reject Leave Request</strong></li>
+
+<li>HR buka request</li>
+
+<li>Review data</li>
+
+<li>Klik approve/reject (dengan alasan wajib jika reject)</li>
+
+<li>Sistem update status
+<p>
+
+    <strong>C. Override (Koreksi Data)</strong></li>
+
+<li>HR buka data cuti</li>
+
+<li>Edit tanggal/status</li>
+
+<li>Simpan perubahan</li>
+
+<li>Sistem mencatat log</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1 Data tidak lengkap → </strong>reject
+<p>
+<strong>E2 Tanggal bentrok → </strong>warning
+<p>
+<strong>E3 Override dilakukan →</strong>harus tercatat audit log
+<p>
+<strong>E4 Employee tidak aktif </strong>→<strong> </strong>assign ditolak
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.2.1.2 Manager**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.2.1.2</strong>
+   </td>
+   <td><strong>Time Off</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Manager (Supervisor)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Employee</strong>: Mendapatkan persetujuan cuti</li>
+
+<li><strong>HR</strong>: Monitoring proses cuti</li>
+
+<li><strong>Manager : </strong>Monitoring cuti tim</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>Manager monitoring cuti tim
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager sudah login</li>
+
+<li>Employee telah submit cuti</li>
+
+<li>Manager memiliki bawahan</li>
+
+<li>Data cuti tersedia dalam sistem</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Mengetahui jadwal employee yang mengambil cuti
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<h3><strong>View Time Off Schedule (ONLY ACCESS)</strong></h3>
+
+
+<ol>
+
+<li>Manager membuka modul Time Off</li>
+
+<li>Sistem menampilkan:</li>
+
+<li>Kalender cuti tim</li>
+
+<li>List employee yang cuti</li>
+
+<li>Manager dapat:</li>
+
+<li>Filter berdasarkan tanggal</li>
+
+<li>Filter berdasarkan tim</li>
+
+<li>Manager melihat:</li>
+
+<li>Jumlah employee yang cuti</li>
+
+<li>Overlap cuti</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Tidak ada data</strong> → tampil empty state
+<p>
+<strong>E2: Akses luar tim</strong> → ditolak
+<p>
+<strong>E3: Data belum sync</strong> → tampil loading
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.2.1.3 Employee**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.2.1.3</strong>
+   </td>
+   <td><strong>Time Off</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Employee
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Employee</strong>: Mengajukan cuti dengan mudah</li>
+
+<li><strong>HR</strong>: Approver dan validasi leave</li>
+
+<li><strong>Manager : </strong>Monitoring jadwal cuti</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>Employee ingin:
+<ul>
+
+<li>Mengajukan cuti</li>
+
+<li>Melihat status cuti</li>
+
+<li>Mengelola permohonan cuti</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee sudah login</li>
+
+<li>Saldo cuti tersedia</li>
+
+<li>Employee aktif dalam sistem</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Request cuti tersimpan</li>
+
+<li>Status → Pending</li>
+
+<li>Notifikasi dikirim ke HR Admin</li>
+
+<li>Data masuk ke sistem Time Off</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Submit Leave Request</strong></li>
+
+<li>Employee membuka menu <strong>Time Off</strong></li>
+
+<li>Klik tombol <strong>Apply Leave</strong></li>
+
+<li>Mengisi form:</li>
+
+<li>Jenis cuti</li>
+
+<li>Tanggal mulai & selesai</li>
+
+<li>Alasan</li>
+
+<li>Sistem melakukan validasi:</li>
+
+<li>Saldo cuti</li>
+
+<li>Employee klik <strong>Submit</strong></li>
+
+<li>Sistem:</li>
+
+<li>Menyimpan data</li>
+
+<li>Mengubah status → Pending</li>
+
+<li>Mengirim notifikasi ke HR Admin
+    <strong>B.  View Leave Status</strong></li>
+
+<li>Employee membuka menu Time Off</li>
+
+<li>Sistem menampilkan daftar cuti</li>
+
+<li>Employee melihat status:</li>
+
+<li>Pending</li>
+
+<li>Approved</li>
+
+<li>Rejected
+<p>
+
+    <strong>C. Cancel Leave Request</strong></li>
+
+<li>Employee memilih request yang masih Pending</li>
+
+<li>Klik Cancel</li>
+
+<li>Sistem menghapus cancel</li>
+
+<li>Notifikasi ke HR Admin</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1 Saldo cuti tidak mencukupi → </strong>request ditolak
+<p>
+<strong>E2 Tanggal cuti overlap → </strong>sistem warning
+<p>
+<strong>E3 Form tidak lengkap → </strong>tidak bisa submit
+<p>
+<strong>E4 Request sudah di-approve → </strong>tidak bisa dibatalkan
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>Very High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.2.2 Mock-up – Time Off**
+
+**4.3.2.2.1 Leave Request Form \
+4.3.2.2.2 Approval Screen \
+4.3.2.2.3 Leave List Table**
+
+
+#### **4.3.2.3 Functional Requirements – Time Off**
+
+
+<table>
+  <tr>
+   <td><strong>Spec ID</strong>
+   </td>
+   <td><strong>Deskripsi</strong>
+   </td>
+   <td><strong>Role</strong>
+   </td>
+   <td><strong>Business Rules / Data Dependency</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>TO-01
+   </td>
+   <td>Sistem memungkinkan pengajuan cuti
+   </td>
+   <td>Employee
+   </td>
+   <td>Form wajib lengkap
+   </td>
+  </tr>
+  <tr>
+   <td>TO-02
+   </td>
+   <td>Sistem melakukan validasi saldo cuti
+   </td>
+   <td>System
+   </td>
+   <td>Saldo ≥ 0
+   </td>
+  </tr>
+  <tr>
+   <td>TO-03
+   </td>
+   <td>Sistem memungkinkan approval cuti
+   </td>
+   <td>Manager
+   </td>
+   <td>Wajib decision
+   </td>
+  </tr>
+  <tr>
+   <td>TO-04
+   </td>
+   <td>Sistem memungkinkan override cuti
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Audit log
+   </td>
+  </tr>
+  <tr>
+   <td>TO-05
+   </td>
+   <td>Sistem update saldo cuti otomatis
+   </td>
+   <td>System
+   </td>
+   <td>Real-time
+   </td>
+  </tr>
+  <tr>
+   <td>TO-06
+   </td>
+   <td>Sistem mencegah overlap tanggal
+   </td>
+   <td>System
+   </td>
+   <td>Tidak boleh overlap
+   </td>
+  </tr>
+  <tr>
+   <td>TO-07
+   </td>
+   <td>Sistem menampilkan data cuti tim
+   </td>
+   <td>Manager
+   </td>
+   <td>Role-based access
+   </td>
+  </tr>
+  <tr>
+   <td>TO-08
+   </td>
+   <td>Sistem integrasi ke payroll
+   </td>
+   <td>System
+   </td>
+   <td>Mandatory
+   </td>
+  </tr>
+  <tr>
+   <td>TO-09
+   </td>
+   <td>Sistem sinkron ke kalender
+   </td>
+   <td>System
+   </td>
+   <td>Auto
+   </td>
+  </tr>
+  <tr>
+   <td>TO-10
+   </td>
+   <td>Sistem kirim notifikasi
+   </td>
+   <td>System
+   </td>
+   <td>Email / in-app
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.2.4 Field Level Specifications – Time Off**
+
+**Form Elements:**
+
+
+<table>
+  <tr>
+   <td><strong>Field Label</strong>
+   </td>
+   <td><strong>Type</strong>
+   </td>
+   <td><strong>Required</strong>
+   </td>
+   <td><strong>Role Access</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Employee Name
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Active only
+   </td>
+   <td>Pilih karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Leave Type
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>All
+   </td>
+   <td>Enum
+   </td>
+   <td>Jenis cuti
+   </td>
+  </tr>
+  <tr>
+   <td>Start Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>All
+   </td>
+   <td>Valid date
+   </td>
+   <td>Tanggal mulai
+   </td>
+  </tr>
+  <tr>
+   <td>End Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>All
+   </td>
+   <td>≥ Start Date
+   </td>
+   <td>Tanggal selesai
+   </td>
+  </tr>
+  <tr>
+   <td>Total Days
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Auto
+   </td>
+   <td>Hitung otomatis
+   </td>
+  </tr>
+  <tr>
+   <td>Leave Balance
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>≥ 0
+   </td>
+   <td>Sisa cuti
+   </td>
+  </tr>
+  <tr>
+   <td>Reason
+   </td>
+   <td>Textarea
+   </td>
+   <td>Yes
+   </td>
+   <td>All
+   </td>
+   <td>Min 5 char
+   </td>
+   <td>Alasan cuti
+   </td>
+  </tr>
+  <tr>
+   <td>Attachment
+   </td>
+   <td>File
+   </td>
+   <td>No
+   </td>
+   <td>Employee
+   </td>
+   <td>PDF/JPG
+   </td>
+   <td>Dokumen
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Enum
+   </td>
+   <td>Pending/Approved
+   </td>
+  </tr>
+</table>
+
+
+**Buttons, Links and Icons:**
+
+
+<table>
+  <tr>
+   <td><strong>Label</strong>
+   </td>
+   <td><strong>Visible (Role)</strong>
+   </td>
+   <td><strong>Event</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Apply Leave
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>Form harus lengkap, saldo mencukupi, tidak overlap
+   </td>
+   <td>Submit pengajuan cuti dan kirim ke Manager
+   </td>
+  </tr>
+  <tr>
+   <td>Approve
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Data valid, saldo cukup
+   </td>
+   <td>Mengubah status menjadi Approved, update saldo cuti, kirim notifikasi
+   </td>
+  </tr>
+  <tr>
+   <td>Reject
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Alasan wajib diisi
+   </td>
+   <td>Mengubah status menjadi Rejected dan kirim notifikasi
+   </td>
+  </tr>
+  <tr>
+   <td>Cancel
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>Status masih Pending
+   </td>
+   <td>Membatalkan pengajuan cuti dan menghapus data
+   </td>
+  </tr>
+  <tr>
+   <td>Edit ✏️
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Data harus tersedia
+   </td>
+   <td>Membuka form edit untuk koreksi data cuti
+   </td>
+  </tr>
+  <tr>
+   <td>Delete 🗑
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Konfirmasi penghapusan
+   </td>
+   <td>Menghapus data cuti (soft delete + audit log)
+   </td>
+  </tr>
+  <tr>
+   <td>View Detail 👁
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Menampilkan detail pengajuan cuti
+   </td>
+  </tr>
+  <tr>
+   <td>Upload Attachment
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>Format file valid (PDF/JPG/PNG)
+   </td>
+   <td>Mengunggah dokumen pendukung
+   </td>
+  </tr>
+  <tr>
+   <td>Download Attachment
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>File tersedia
+   </td>
+   <td>Mengunduh dokumen
+   </td>
+  </tr>
+  <tr>
+   <td>Filter
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>Parameter filter valid
+   </td>
+   <td>Menampilkan data sesuai filter
+   </td>
+  </tr>
+  <tr>
+   <td>Export Data
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Mengunduh laporan cuti (Excel/PDF)
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.3 Sub-Module: Attendance**
+
+**4.3.3.1 Use Case – Attendance**
+
+
+#### **4.3.3.1.1  HR Admin**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.3.1.1</strong>
+   </td>
+   <td><strong>Attendance</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>HR Admin
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>HR: </strong>validasi & kontrol data absensi</li>
+
+<li><strong>Management : </strong>monitoring disiplin</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR Admin membuka modul Attendance</li>
+
+<li>Terdapat data anomali (late, invalid, missing attendance)</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>User login sebagai HR Admin</li>
+
+<li>Data employee dan schedule tersedia</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Data attendance terupdate</li>
+
+<li>Audit log tercatat</li>
+
+<li>Data tersinkron ke payroll & reporting</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td><strong>Monitoring & Koreksi Attendance</strong>
+<ol>
+
+<li>HR Admin membuka menu Attendance</li>
+
+<li>Sistem menampilkan data absensi karyawan</li>
+
+<li>HR Admin melakukan filter (tanggal, departemen)</li>
+
+<li>HR Admin memilih data karyawan</li>
+
+<li>Melakukan edit/koreksi data</li>
+
+<li>Sistem validasi perubahan</li>
+
+<li>Sistem menyimpan perubahan dan mencatat audit log</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1 Data tidak valid→ </strong>sistem menolak perubahan
+<p>
+<strong>E2 Edit manual → </strong>wajib audit trail
+<p>
+<strong>E3 Schedule tidak tersedia →</strong>warning
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>Critical
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.3.1.2  Manager**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.3.1.2</strong>
+   </td>
+   <td><strong>Attendance</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Manager / Supervisor
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>HR: </strong>data tetap valid</li>
+
+<li><strong>Manager: </strong>monitoring kehadiran tim</li>
+
+<li><strong>Employee</strong>: transparansi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager membuka Attendance</li>
+
+<li>Manager ingin melihat performa kehadiran tim</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager login</li>
+
+<li>Memiliki bawahan staff</li>
+
+<li>Data attendance tersedia</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Manager mendapatkan insight kehadiran tim
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td><strong>Monitoring Attendance Tim</strong>
+<ol>
+
+<li>Manager membuka menu Attendance</li>
+
+<li>Sistem menampilkan data tim</li>
+
+<li>Manager melakukan filter (periode, status)</li>
+
+<li>Sistem menampilkan data:</li>
+
+<li>On-time</li>
+
+<li>Late</li>
+
+<li>Early leave</li>
+
+<li>Manager melakukan evaluasi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1 Data tidak tersedia</strong>
+<p>
+<strong>E2 Akses di luar tim →</strong>ditolak
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.3.1.3  Employee**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.3.1.3</strong>
+   </td>
+   <td><strong>Attendance</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Employee
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>HR: </strong>data akurat</li>
+
+<li><strong>Employee: </strong>kemudahan absensi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>Jam kerja dimulai / selesai
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee login</li>
+
+<li>Schedule tersedia</li>
+
+<li>Lokasi valid (GPS/office)</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Data clock-in/out tersimpan</li>
+
+<li>Status kehadiran terupdate</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Clock-In</strong></li>
+
+<li>Employee membuka modul Attendance</li>
+
+<li>Sistem menampilkan jadwal kerja hari ini</li>
+
+<li>Employee klik Clock-In</li>
+
+<li>Sistem mencatat timestamp dan lokasi</li>
+
+<li>Sistem menentukan status: On-time atau Late (berdasarkan jadwal)
+    <strong>B.  Clock-Out</strong></li>
+
+<li>Employee klik Clock-Out</li>
+
+<li>Sistem mencatat timestamp keluar</li>
+
+<li>Sistem menghitung total durasi kerja
+<p>
+
+    <strong>C. Attendance Correction Request</strong></li>
+
+<li>Employee menemukan ketidaksesuaian data</li>
+
+<li>Employee klik Request Correction</li>
+
+<li>Employee mengisi: tanggal, jam clock-in/out yang benar, alasan</li>
+
+<li>Sistem menyimpan request dengan status Pending</li>
+
+<li>HR Admin menerima notifikasi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1 GPS tidak valid →</strong>gagal clock-in
+<p>
+<strong>E2 Duplicate attendance →</strong>ditolak
+<p>
+<strong>E3 Koneksi gagal</strong> <strong>→</strong>retry
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>Critical
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.3.2 Mock-up – Attendance**
+
+**4.3.3.2.1 Clock-in / Clock-out Screen**
+
+
+
+* Tombol clock-in & clock-out
+* Informasi waktu real-time
+* Lokasi (GPS)
+* Status kehadiran
+
+**4.3.3.2.2 Attendance Dashboard**
+
+
+
+* Ringkasan (Total Hadir, Late, dan Early Leave)
+* Grafik kehadiran
+
+**4.3.3.2.3 Attendance Table**
+
+
+
+* List karyawan
+* Status kehadiran
+* Waktu masuk & keluar
+* Filter & search
+
+
+#### **4.3.3.3 Functional Requirements – Attendance**
+
+
+<table>
+  <tr>
+   <td><strong>Spec ID</strong>
+   </td>
+   <td><strong>Deskripsi</strong>
+   </td>
+   <td><strong>Role</strong>
+   </td>
+   <td><strong>Business Rules / Data Dependency</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>AT-01
+   </td>
+   <td>Sistem memungkinkan check-in
+   </td>
+   <td>Employee
+   </td>
+   <td>GPS valid
+   </td>
+  </tr>
+  <tr>
+   <td>AT-02
+   </td>
+   <td>Sistem memungkinkan check-out
+   </td>
+   <td>Employee
+   </td>
+   <td>1x per hari
+   </td>
+  </tr>
+  <tr>
+   <td>AT-03
+   </td>
+   <td>Sistem mencatat waktu otomatis
+   </td>
+   <td>System
+   </td>
+   <td>Timestamp system
+   </td>
+  </tr>
+  <tr>
+   <td>AT-04
+   </td>
+   <td>Sistem menentukan status kehadiran
+   </td>
+   <td>System
+   </td>
+   <td>Berdasarkan schedule
+   </td>
+  </tr>
+  <tr>
+   <td>AT-05
+   </td>
+   <td>Sistem mencegah duplicate attendance
+   </td>
+   <td>System
+   </td>
+   <td>1 record/hari
+   </td>
+  </tr>
+  <tr>
+   <td>AT-06
+   </td>
+   <td>Sistem memungkinkan monitoring attendance
+   </td>
+   <td>Manager
+   </td>
+   <td>Data tim saja
+   </td>
+  </tr>
+  <tr>
+   <td>AT-07
+   </td>
+   <td>Sistem memungkinkan koreksi data
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Audit log wajib
+   </td>
+  </tr>
+  <tr>
+   <td>AT-08
+   </td>
+   <td>Sistem menandai anomali attendance
+   </td>
+   <td>System
+   </td>
+   <td>Late/Early
+   </td>
+  </tr>
+  <tr>
+   <td>AT-09
+   </td>
+   <td>Sistem integrasi ke payroll
+   </td>
+   <td>System
+   </td>
+   <td>Mandatory
+   </td>
+  </tr>
+  <tr>
+   <td>AT-10
+   </td>
+   <td>Sistem mendukung filter & pencarian
+   </td>
+   <td>All
+   </td>
+   <td>Parameter valid
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.3.4 Field Level Specifications – Attendance**
+
+**Form Elements:**
+
+
+<table>
+  <tr>
+   <td><strong>Field Label</strong>
+   </td>
+   <td><strong>Type</strong>
+   </td>
+   <td><strong>Required</strong>
+   </td>
+   <td><strong>Role Access</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Employee Name
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Valid
+   </td>
+   <td>Nama karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Check-in Time
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Timestamp
+   </td>
+   <td>Waktu masuk
+   </td>
+  </tr>
+  <tr>
+   <td>Check-out Time
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Timestamp
+   </td>
+   <td>Waktu keluar
+   </td>
+  </tr>
+  <tr>
+   <td>Location
+   </td>
+   <td>GPS
+   </td>
+   <td>Yes
+   </td>
+   <td>Employee
+   </td>
+   <td>Valid lokasi
+   </td>
+   <td>Lokasi absensi
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Enum
+   </td>
+   <td>On-time/Late
+   </td>
+  </tr>
+  <tr>
+   <td>Shift
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Valid
+   </td>
+   <td>Jadwal kerja
+   </td>
+  </tr>
+  <tr>
+   <td>Notes
+   </td>
+   <td>Textarea
+   </td>
+   <td>No
+   </td>
+   <td>All
+   </td>
+   <td>Optional
+   </td>
+   <td>Catatan
+   </td>
+  </tr>
+  <tr>
+   <td>Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Valid
+   </td>
+   <td>Tanggal
+   </td>
+  </tr>
+</table>
+
+
+**Buttons, Links and Icons:**
+
+
+<table>
+  <tr>
+   <td><strong>Label</strong>
+   </td>
+   <td><strong>Visible (Role)</strong>
+   </td>
+   <td><strong>Event</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Check-in
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>GPS valid, belum check-in
+   </td>
+   <td>Menyimpan waktu masuk
+   </td>
+  </tr>
+  <tr>
+   <td>Check-out
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>Sudah check-in
+   </td>
+   <td>Menyimpan waktu keluar
+   </td>
+  </tr>
+  <tr>
+   <td>Edit ✏️
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Edit attendance
+   </td>
+  </tr>
+  <tr>
+   <td>View 👁
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Lihat detail
+   </td>
+  </tr>
+  <tr>
+   <td>Filter
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>Parameter valid
+   </td>
+   <td>Filter data
+   </td>
+  </tr>
+  <tr>
+   <td>Export Data
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Export laporan
+   </td>
+  </tr>
+  <tr>
+   <td>Refresh
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>-
+   </td>
+   <td>Reload data
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.4 Sub-Module: Overtime (Lembur)**
+
+**4.3.4.1 Use Case – Overtime**
+
+**4.3.4.1.1  Manager**
+
+
+<table>
+  <tr>
+   <td><strong>Field</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor</strong>
+   </td>
+   <td>Manager
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Ada kebutuhan operasional (lembur)</li>
+
+<li>Manager membutuhkan staff bekerja di luar jam kerja</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager sudah login</li>
+
+<li>Employee memiliki schedule aktif</li>
+
+<li>Tidak sedang cuti</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Data lembur tercatat</li>
+
+<li>Request dikirim ke HR</li>
+
+<li>Employee mendapatkan notifikasi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager membuka modul <strong>Overtime</strong></li>
+
+<li>Klik <strong>Assign Overtime</strong></li>
+
+<li>Memilih:</li>
+
+<li>Employee</li>
+
+<li>Tanggal lembur</li>
+
+<li>Jam mulai & selesai</li>
+
+<li>Mengisi alasan lembur</li>
+
+<li>Klik <strong>Submit</strong></li>
+
+<li>Sistem:</li>
+
+<li>Menyimpan data lembur</li>
+
+<li>Status = Pending HR</li>
+
+<li>Mengirim notifikasi ke HR & Employee</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Employee sedang cuti → </strong>tidak bisa assign
+<p>
+<strong>E2: Jadwal bentrok</strong> → sistem menolak
+<p>
+<strong>E3: Jam tidak valid</strong> → error
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>Crirical 
+   </td>
+  </tr>
+</table>
+
+
+**4.3.4.1.1  HR Admin**
+
+
+<table>
+  <tr>
+   <td><strong>Field</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor</strong>
+   </td>
+   <td>HR Admin
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>HR menerima request lembur dari Manager
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR sudah login</li>
+
+<li>Data lembur tersedia</li>
+
+<li>Data attendance tersedia</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Lembur tervalidasi</li>
+
+<li>Kompensasi dihitung</li>
+
+<li>Status = Approved / Rejected</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR membuka modul <strong>Overtime</strong></li>
+
+<li>Melihat daftar lembur (dari manager)</li>
+
+<li>Memilih salah satu request</li>
+
+<li>Sistem menampilkan:</li>
+
+<li>Employee</li>
+
+<li>Jam lembur</li>
+
+<li>Durasi</li>
+
+<li>Alasan</li>
+
+<li>HR melakukan validasi:</li>
+
+<li>Kesesuaian jam kerja</li>
+
+<li>Kebijakan lembur</li>
+
+<li>Sistem menghitung kompensasi (opsional)</li>
+
+<li>HR memilih:</li>
+
+<li>Approve</li>
+
+<li>Reject (wajib alasan)</li>
+
+<li>Sistem:</li>
+
+<li>Update status</li>
+
+<li>Kirim notifikasi ke employee & manager</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Data tidak valid</strong> → reject
+<p>
+<strong>E2: Melebihi batas lembur</strong> → warning
+<p>
+<strong>E3: Reject tanpa alasan</strong> → error
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+</table>
+
+
+**4.3.4.1.2  Employee**
+
+
+<table>
+  <tr>
+   <td><strong>Field</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor</strong>
+   </td>
+   <td>Employee
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee menerima assignment lembur</li>
+
+<li>Employee menerima notifikasi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee sudah login</li>
+
+<li>Data lembur sudah dibuat oleh manager</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee mengetahui jadwal lembur</li>
+
+<li>(Optional) Employee acknowledge</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee menerima notifikasi lembur</li>
+
+<li>Membuka modul <strong>Overtime</strong></li>
+
+<li>Melihat detail:</li>
+
+<li>Tanggal</li>
+
+<li>Jam lembur</li>
+
+<li>Durasi</li>
+
+<li>Employee:</li>
+
+<li>Melakukan pekerjaan lembur</li>
+
+<li>(Optional) klik <strong>Acknowledge</strong></li>
+
+<li>Setelah HR approve:</li>
+
+<li>Employee melihat status</li>
+
+<li>Melihat kompensasi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Employee tidak tersedia </strong>→ eskalasi
+<p>
+<strong>E2: Tidak acknowledge</strong> → tetap tercatat
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.4.2 Functional Requirements – Overtime (Lembur)**
+
+
+<table>
+  <tr>
+   <td><strong>Spec ID</strong>
+   </td>
+   <td><strong>Specification Description</strong>
+   </td>
+   <td><strong>Role</strong>
+   </td>
+   <td><strong>Business Rules / Data Dependency</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>OT-01
+   </td>
+   <td>Sistem memungkinkan Manager membuat assignment lembur
+   </td>
+   <td>Manager
+   </td>
+   <td>Employee aktif & dalam tim
+   </td>
+  </tr>
+  <tr>
+   <td>OT-02
+   </td>
+   <td>Sistem memungkinkan Manager memilih employee untuk lembur
+   </td>
+   <td>Manager
+   </td>
+   <td>Berdasarkan struktur organisasi
+   </td>
+  </tr>
+  <tr>
+   <td>OT-03
+   </td>
+   <td>Sistem memvalidasi schedule employee
+   </td>
+   <td>System
+   </td>
+   <td>Tidak sedang cuti / libur
+   </td>
+  </tr>
+  <tr>
+   <td>OT-04
+   </td>
+   <td>Sistem memvalidasi jam lembur
+   </td>
+   <td>System
+   </td>
+   <td>Di luar jam kerja normal
+   </td>
+  </tr>
+  <tr>
+   <td>OT-05
+   </td>
+   <td>Sistem mencegah overlap lembur
+   </td>
+   <td>System
+   </td>
+   <td>Tidak boleh bentrok dengan schedule / time off
+   </td>
+  </tr>
+  <tr>
+   <td>OT-06
+   </td>
+   <td>Sistem menyimpan data lembur
+   </td>
+   <td>System
+   </td>
+   <td>Structured data
+   </td>
+  </tr>
+  <tr>
+   <td>OT-07
+   </td>
+   <td>Sistem mengirim notifikasi ke HR dan Employee
+   </td>
+   <td>System
+   </td>
+   <td>Real-time
+   </td>
+  </tr>
+  <tr>
+   <td>OT-08
+   </td>
+   <td>Sistem menampilkan daftar lembur
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Berdasarkan periode
+   </td>
+  </tr>
+  <tr>
+   <td>OT-09
+   </td>
+   <td>Sistem menampilkan detail lembur
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Data lengkap
+   </td>
+  </tr>
+  <tr>
+   <td>OT-10
+   </td>
+   <td>Sistem memungkinkan HR melakukan approval
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Role-based
+   </td>
+  </tr>
+  <tr>
+   <td>OT-11
+   </td>
+   <td>Sistem memungkinkan HR reject lembur
+   </td>
+   <td>HR Admin
+   </td>
+   <td>Wajib alasan
+   </td>
+  </tr>
+  <tr>
+   <td>OT-12
+   </td>
+   <td>Sistem menghitung durasi lembur otomatis
+   </td>
+   <td>System
+   </td>
+   <td>End time – start time
+   </td>
+  </tr>
+  <tr>
+   <td>OT-13
+   </td>
+   <td>Sistem menghitung kompensasi lembur
+   </td>
+   <td>System
+   </td>
+   <td>Berdasarkan policy lembur
+   </td>
+  </tr>
+  <tr>
+   <td>OT-14
+   </td>
+   <td>Sistem mengupdate status lembur
+   </td>
+   <td>System
+   </td>
+   <td>Pending → Approved / Rejected
+   </td>
+  </tr>
+  <tr>
+   <td>OT-15
+   </td>
+   <td>Sistem mengirim notifikasi hasil approval
+   </td>
+   <td>System
+   </td>
+   <td>Ke Manager & Employee
+   </td>
+  </tr>
+  <tr>
+   <td>OT-16
+   </td>
+   <td>Sistem menampilkan lembur ke Employee
+   </td>
+   <td>Employee
+   </td>
+   <td>View-only
+   </td>
+  </tr>
+  <tr>
+   <td>OT-17
+   </td>
+   <td>Sistem memungkinkan Employee acknowledge lembur
+   </td>
+   <td>Employee
+   </td>
+   <td>Optional
+   </td>
+  </tr>
+  <tr>
+   <td>OT-18
+   </td>
+   <td>Sistem mencatat audit log
+   </td>
+   <td>System
+   </td>
+   <td>Mandatory
+   </td>
+  </tr>
+  <tr>
+   <td>OT-19
+   </td>
+   <td>Sistem mencegah perubahan setelah approval
+   </td>
+   <td>System
+   </td>
+   <td>Status lock
+   </td>
+  </tr>
+  <tr>
+   <td>OT-20
+   </td>
+   <td>Sistem menyediakan filter lembur
+   </td>
+   <td>HR, Manager
+   </td>
+   <td>Periode, employee
+   </td>
+  </tr>
+  <tr>
+   <td>OT-21
+   </td>
+   <td>Sistem integrasi dengan payroll
+   </td>
+   <td>System
+   </td>
+   <td>Approved overtime only
+   </td>
+  </tr>
+  <tr>
+   <td>OT-22
+   </td>
+   <td>Sistem menampilkan laporan lembur
+   </td>
+   <td>HR, Manager
+   </td>
+   <td>Reporting integration
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.4.3 Field Level Specifications – Overtime (Lembur)**
+
+**Form Elements:**
+
+
+<table>
+  <tr>
+   <td><strong>Field Label</strong>
+   </td>
+   <td><strong>Type</strong>
+   </td>
+   <td><strong>Required</strong>
+   </td>
+   <td><strong>Role</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Employee Name
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>Manager
+   </td>
+   <td>Active
+   </td>
+   <td>Pilih karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>Manager
+   </td>
+   <td>Valid date
+   </td>
+   <td>Tanggal lembur
+   </td>
+  </tr>
+  <tr>
+   <td>Start Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>Manager
+   </td>
+   <td>> Jam kerja
+   </td>
+   <td>Jam mulai
+   </td>
+  </tr>
+  <tr>
+   <td>End Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>Manager
+   </td>
+   <td>> Start
+   </td>
+   <td>Jam selesai
+   </td>
+  </tr>
+  <tr>
+   <td>Duration
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>System
+   </td>
+   <td>Durasi
+   </td>
+  </tr>
+  <tr>
+   <td>Reason
+   </td>
+   <td>Textarea
+   </td>
+   <td>Yes
+   </td>
+   <td>Manager
+   </td>
+   <td>Required
+   </td>
+   <td>Alasan
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Enum
+   </td>
+   <td>Pending HR
+   </td>
+  </tr>
+  <tr>
+   <td>Created Date
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>System
+   </td>
+   <td>Timestamp
+   </td>
+  </tr>
+  <tr>
+   <td>Employee Name
+   </td>
+   <td>Text
+   </td>
+   <td>Yes
+   </td>
+   <td>HR
+   </td>
+   <td>System
+   </td>
+   <td>Nama
+   </td>
+  </tr>
+  <tr>
+   <td>Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>HR
+   </td>
+   <td>System
+   </td>
+   <td>Tanggal
+   </td>
+  </tr>
+  <tr>
+   <td>Start Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>HR
+   </td>
+   <td>System
+   </td>
+   <td>Jam mulai
+   </td>
+  </tr>
+  <tr>
+   <td>End Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>HR
+   </td>
+   <td>System
+   </td>
+   <td>Jam selesai
+   </td>
+  </tr>
+  <tr>
+   <td>Duration
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>System
+   </td>
+   <td>Durasi
+   </td>
+  </tr>
+  <tr>
+   <td>Overtime Rate
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>HR
+   </td>
+   <td>Policy
+   </td>
+   <td>Rate lembur
+   </td>
+  </tr>
+  <tr>
+   <td>Compensation
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Calculated
+   </td>
+   <td>Nilai kompensasi
+   </td>
+  </tr>
+  <tr>
+   <td>Reason
+   </td>
+   <td>Textarea
+   </td>
+   <td>Yes
+   </td>
+   <td>HR
+   </td>
+   <td>System
+   </td>
+   <td>Alasan
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Badge
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Enum
+   </td>
+   <td>Pending
+   </td>
+  </tr>
+  <tr>
+   <td>Approval Notes
+   </td>
+   <td>Textarea
+   </td>
+   <td>No
+   </td>
+   <td>HR
+   </td>
+   <td>Required (Reject)
+   </td>
+   <td>Catatan
+   </td>
+  </tr>
+  <tr>
+   <td>Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>Employee
+   </td>
+   <td>System
+   </td>
+   <td>Tanggal
+   </td>
+  </tr>
+  <tr>
+   <td>Start Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>Employee
+   </td>
+   <td>System
+   </td>
+   <td>Jam mulai
+   </td>
+  </tr>
+  <tr>
+   <td>End Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>Employee
+   </td>
+   <td>System
+   </td>
+   <td>Jam selesai
+   </td>
+  </tr>
+  <tr>
+   <td>Duration
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>System
+   </td>
+   <td>Durasi
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Badge
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Enum
+   </td>
+   <td>Status
+   </td>
+  </tr>
+  <tr>
+   <td>Compensation
+   </td>
+   <td>Number
+   </td>
+   <td>No
+   </td>
+   <td>System
+   </td>
+   <td>System
+   </td>
+   <td>Kompensasi
+   </td>
+  </tr>
+</table>
+
+
+**Buttons, Links and Icons:**
+
+
+<table>
+  <tr>
+   <td><strong>Label</strong>
+   </td>
+   <td><strong>Visible</strong>
+   </td>
+   <td><strong>Event</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Assign Overtime
+   </td>
+   <td>Manager
+   </td>
+   <td>Click
+   </td>
+   <td>-
+   </td>
+   <td>Buka form
+   </td>
+  </tr>
+  <tr>
+   <td>Submit
+   </td>
+   <td>Manager
+   </td>
+   <td>Click
+   </td>
+   <td>Field valid
+   </td>
+   <td>Kirim ke HR
+   </td>
+  </tr>
+  <tr>
+   <td>Edit ✏️
+   </td>
+   <td>Manager
+   </td>
+   <td>Click
+   </td>
+   <td>Status pending
+   </td>
+   <td>Edit
+   </td>
+  </tr>
+  <tr>
+   <td>View 👁
+   </td>
+   <td>Manager
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Lihat detail
+   </td>
+  </tr>
+  <tr>
+   <td>Filter
+   </td>
+   <td>Manager
+   </td>
+   <td>Click
+   </td>
+   <td>Valid
+   </td>
+   <td>Filter data
+   </td>
+  </tr>
+  <tr>
+   <td>Approve ✔
+   </td>
+   <td>HR
+   </td>
+   <td>Click
+   </td>
+   <td>Valid
+   </td>
+   <td>Approve
+   </td>
+  </tr>
+  <tr>
+   <td>Reject ✖
+   </td>
+   <td>HR
+   </td>
+   <td>Click
+   </td>
+   <td>Wajib alasan
+   </td>
+   <td>Reject
+   </td>
+  </tr>
+  <tr>
+   <td>Calculate
+   </td>
+   <td>System
+   </td>
+   <td>Auto
+   </td>
+   <td>-
+   </td>
+   <td>Hitung kompensasi
+   </td>
+  </tr>
+  <tr>
+   <td>View Detail 👁
+   </td>
+   <td>HR
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Detail
+   </td>
+  </tr>
+  <tr>
+   <td>Filter
+   </td>
+   <td>HR
+   </td>
+   <td>Click
+   </td>
+   <td>Valid
+   </td>
+   <td>Filter
+   </td>
+  </tr>
+  <tr>
+   <td>View 👁
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Lihat lembur
+   </td>
+  </tr>
+  <tr>
+   <td>Acknowledge
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>Optional
+   </td>
+   <td>Konfirmasi
+   </td>
+  </tr>
+  <tr>
+   <td>Notification 🔔
+   </td>
+   <td>Employee
+   </td>
+   <td>Click
+   </td>
+   <td>-
+   </td>
+   <td>Lihat notifikasi
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.5 Sub-Module: Schedule**
+
+**4.3.5.1 Use Case – Schedule**
+
+
+#### **4.3.5.1.1 HR Admin**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.5.1.1</strong>
+   </td>
+   <td><strong>Schedule</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>HR Admin
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>HR: </strong>Monitoring tim</li>
+
+<li><strong>Manager: </strong>Pengaturan jadwal kerja</li>
+
+<li><strong>Employee : </strong>Kejelasan jadwal kerja</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>HR ingin monitoring jadwal
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR login</li>
+
+<li>Data employee tersedia</li>
+
+<li>Struktur organisasi tersedia</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Jadwal kerja tersimpan</li>
+
+<li>Struktur shift terbentuk</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>HR membuka dashboard schedule</li>
+
+<li>Melihat seluruh jadwal</li>
+
+<li>Melakukan analisis</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Jadwal overlap</strong> → ditolak
+<p>
+<strong>E2: Data tidak valid</strong> → error
+<p>
+<strong>E3: edit jadwal yang sudah berjalan</strong> → warning
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.5.1.2  Manager**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.5.1.2</strong>
+   </td>
+   <td><strong>Schedule</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Manager
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Manager: </strong>ingin membuat atau mengubah jadwal tim</li>
+
+<li><strong>Employee : </strong>Kepastian jadwal kerja</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>Manager ingin membuat atau mengubah jadwal tim
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Manager login</li>
+
+<li>Memiliki bawahan</li>
+
+<li>Data schedule tersedia</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Jadwal tersimpan</li>
+
+<li>Employee mendapatkan notifikasi</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li><strong>Create Schedule</strong></li>
+
+<li>Manager membuka modul Schedule</li>
+
+<li>Klik Add Schedule</li>
+
+<li>Memilih:</li>
+
+<li>Employee</li>
+
+<li>Tanggal</li>
+
+<li>Shift</li>
+
+<li>Klik Save</li>
+
+<li>Sistem:</li>
+
+<li>Menyimpan jadwal</li>
+
+<li>Mengirim notifikasi
+             </li>
+
+<li><strong>Update Schedule</strong></li>
+
+<li>Manager memilih jadwal</li>
+
+<li>Klik Edit</li>
+
+<li>Mengubah shift</li>
+
+<li>Klik Save</li>
+
+<li>Sistem update data</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Jadwal overlap</strong> → ditolak
+<p>
+<strong>E2: Data tidak valid</strong> → error
+<p>
+<strong>E3: edit jadwal yang sudah berjalan</strong> → warning
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.5.1.3  Employee**
+
+
+<table>
+  <tr>
+   <td><strong>UC-4.3.5.1.3</strong>
+   </td>
+   <td><strong>Schedule</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Primary Actor(s)</strong>
+   </td>
+   <td>Employee
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Stakeholders and Interest</strong>
+   </td>
+   <td><strong>Employee : </strong>Mengetahui jadwal kerja
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Trigger</strong>
+   </td>
+   <td>Employee ingin melihat jadwal tim
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Pre-conditions</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee login</li>
+
+<li>Jadwal tersedia</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Post-conditions</strong>
+   </td>
+   <td>Employee mendapatkan informasi jadwal tim
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Main Success Scenario</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Employee membuka modul Schedule</li>
+
+<li>Sistem menampilkan kalender jadwal</li>
+
+<li>Employee melihat:</li>
+
+<li>Shift kerja</li>
+
+<li>Jam masuk & pulang</li>
+
+<li>Employee dapat:</li>
+
+<li>Filter tanggal</li>
+
+<li>Melihat detail shift</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Extensions</strong>
+   </td>
+   <td><strong>E1: Jadwal belum tersedia</strong> → tampil empty state
+<p>
+<strong>E2: Akses di luar jadwal</strong> → ditolak
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Priority</strong>
+   </td>
+   <td>High
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Special Requirements</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Open Questions</strong>
+   </td>
+   <td>-
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.5.2 Mock-up – Schedule**
+
+**4.3.5.2.1 Schedule Form**
+
+
+
+* Input tanggal
+* Jam kerja
+* Shift
+* Lokasi
+
+**4.3.5.2.2 Assignment Screen**
+
+
+
+* Pilih karyawan
+* Assign jadwal
+
+**4.3.5.2.3 Calendar View**
+
+
+
+* Tampilan seperti Google Calendar
+* Menampilkan shift kerja
+
+
+#### **4.3.5.3 Functional Requirements – Schedule**
+
+
+<table>
+  <tr>
+   <td><strong>Spec ID</strong>
+   </td>
+   <td><strong>Deskripsi Spesifikasi</strong>
+   </td>
+   <td><strong>Role</strong>
+   </td>
+   <td><strong>Business Rules / Data Dependency</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>SC-01
+   </td>
+   <td>Sistem memungkinkan pembuatan jadwal kerja
+   </td>
+   <td>HR Admin / Manager
+   </td>
+   <td>HR dan Manager
+   </td>
+  </tr>
+  <tr>
+   <td>SC-02
+   </td>
+   <td>Sistem memungkinkan assign jadwal ke karyawan
+   </td>
+   <td>HR Admin / Manager
+   </td>
+   <td>Karyawan aktif
+   </td>
+  </tr>
+  <tr>
+   <td>SC-03
+   </td>
+   <td>Sistem mencegah jadwal overlap
+   </td>
+   <td>System
+   </td>
+   <td>Tidak boleh bentrok
+   </td>
+  </tr>
+  <tr>
+   <td>SC-04
+   </td>
+   <td>Sistem menampilkan jadwal tim
+   </td>
+   <td>Manager
+   </td>
+   <td>Role-based
+   </td>
+  </tr>
+  <tr>
+   <td>SC-05
+   </td>
+   <td>Sistem menampilkan jadwal pribadi
+   </td>
+   <td>Employee
+   </td>
+   <td>Data personal
+   </td>
+  </tr>
+  <tr>
+   <td>SC-06
+   </td>
+   <td>Sistem mendukung pengaturan shift
+   </td>
+   <td>HR Admin / Manager
+   </td>
+   <td>Configurable
+   </td>
+  </tr>
+  <tr>
+   <td>SC-07
+   </td>
+   <td>Sistem sinkron dengan attendance
+   </td>
+   <td>System
+   </td>
+   <td>Mandatory
+   </td>
+  </tr>
+  <tr>
+   <td>SC-08
+   </td>
+   <td>Sistem sinkron dengan calendar
+   </td>
+   <td>System
+   </td>
+   <td>Auto
+   </td>
+  </tr>
+  <tr>
+   <td>SC-09
+   </td>
+   <td>Sistem mendukung bulk upload jadwal
+   </td>
+   <td>HR Admin / Manager
+   </td>
+   <td>Template
+   </td>
+  </tr>
+  <tr>
+   <td>SC-10
+   </td>
+   <td>Sistem mencatat perubahan jadwal
+   </td>
+   <td>System
+   </td>
+   <td>Audit log
+   </td>
+  </tr>
+</table>
+
+
+
+#### **4.3.5.4 Field Level Specifications – Schedule**
+
+**Form Elements:**
+
+
+<table>
+  <tr>
+   <td><strong>Field Label</strong>
+   </td>
+   <td><strong>Type</strong>
+   </td>
+   <td><strong>Required</strong>
+   </td>
+   <td><strong>Role Access</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Employee Name
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Active only
+   </td>
+   <td>Nama karyawan
+   </td>
+  </tr>
+  <tr>
+   <td>Date
+   </td>
+   <td>Date
+   </td>
+   <td>Yes
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Valid date
+   </td>
+   <td>Tanggal kerja
+   </td>
+  </tr>
+  <tr>
+   <td>Start Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Valid
+   </td>
+   <td>Jam mulai
+   </td>
+  </tr>
+  <tr>
+   <td>End Time
+   </td>
+   <td>Time
+   </td>
+   <td>Yes
+   </td>
+   <td>Superadmin
+   </td>
+   <td>> Start Time
+   </td>
+   <td>Jam selesai
+   </td>
+  </tr>
+  <tr>
+   <td>Shift Type
+   </td>
+   <td>Dropdown
+   </td>
+   <td>Yes
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Enum
+   </td>
+   <td>Morning/Evening
+   </td>
+  </tr>
+  <tr>
+   <td>Location
+   </td>
+   <td>Dropdown
+   </td>
+   <td>No
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Optional
+   </td>
+   <td>Lokasi kerja
+   </td>
+  </tr>
+  <tr>
+   <td>Notes
+   </td>
+   <td>Textarea
+   </td>
+   <td>No
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Optional
+   </td>
+   <td>Catatan
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Auto
+   </td>
+   <td>Yes
+   </td>
+   <td>System
+   </td>
+   <td>Active
+   </td>
+   <td>Status jadwal
+   </td>
+  </tr>
+</table>
+
+
+**Buttons, Links and Icons:**
+
+
+<table>
+  <tr>
+   <td><strong>Label</strong>
+   </td>
+   <td><strong>Visible (Role)</strong>
+   </td>
+   <td><strong>Event</strong>
+   </td>
+   <td><strong>Validation</strong>
+   </td>
+   <td><strong>Action</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Add Schedule
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Click
+   </td>
+   <td>Form lengkap
+   </td>
+   <td>Menambahkan jadwal
+   </td>
+  </tr>
+  <tr>
+   <td>Assign
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Click
+   </td>
+   <td>Karyawan valid
+   </td>
+   <td>Assign jadwal
+   </td>
+  </tr>
+  <tr>
+   <td>Edit ✏️
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Edit jadwal
+   </td>
+  </tr>
+  <tr>
+   <td>Delete 🗑
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Click
+   </td>
+   <td>Konfirmasi
+   </td>
+   <td>Hapus jadwal
+   </td>
+  </tr>
+  <tr>
+   <td>View 👁
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Lihat detail
+   </td>
+  </tr>
+  <tr>
+   <td>Calendar View 📅
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>-
+   </td>
+   <td>Tampilkan kalender
+   </td>
+  </tr>
+  <tr>
+   <td>Filter
+   </td>
+   <td>All
+   </td>
+   <td>Click
+   </td>
+   <td>Parameter valid
+   </td>
+   <td>Filter jadwal
+   </td>
+  </tr>
+  <tr>
+   <td>Export Data
+   </td>
+   <td>Superadmin
+   </td>
+   <td>Click
+   </td>
+   <td>Data tersedia
+   </td>
+   <td>Export jadwal
+   </td>
+  </tr>
+</table>
+
